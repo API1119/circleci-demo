@@ -21,7 +21,7 @@ jobs:
       # Then run your tests!
       - run:
           name: Deploy
-          command: 'mvn package deploy -DmuleDeploy -Danypoint.username=${mule_username} -Danypoint.password=${mule_password} -Denvironment=${env}' 
+          command: 'mvn package deploy -DmuleDeploy -Dusername=${mule_username} -Dpassword=${mule_password}' 
 
 workflows:
   # Below is the definition of your workflow.
