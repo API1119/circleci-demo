@@ -1,25 +1,21 @@
 version: 2.1
 workflows:
-  version: 2
-  build-deploy:
+  setup:
     jobs:
-      - build:
-          context: mule
-jobs:
-    docker:
-      - image: circleci/openjdk:8
-    steps:
-      - checkout
-      - restore_cache:
-          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
-      - save_cache:
-          paths:
-            - ~/.m2
-          key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
-      - run:
-          name: Build
-          command: 'mvn -B -DskipTests clean package'
-      - run:
-          name: Deploy
-          command: 'mvn package deploy -DmuleDeploy -Dusername=${master_username} -Dpassword=${master_password} -Denvironment=${env}'  
+      docker:
+        - image: circleci/openjdk:8
+      steps:
+        - checkout
+        - restore_cache:
+            key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+        - save_cache:
+            paths:
+              - ~/.m2
+            key: 'mulesoft-ci-cd-{{ checksum "pom.xml" }}'
+        - run:
+            name: Build
+            command: 'mvn -B -DskipTests clean package'
+        - run:
+            name: Deploy
+            command: 'mvn package deploy -DmuleDeploy -Dusername=${master_username} -Dpassword=${master_password} -Denvironment=${env}'  
 		  
