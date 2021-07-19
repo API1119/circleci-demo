@@ -24,7 +24,7 @@ jobs:
           env:
             USERNAME: ${{ mule.username }}
             PASSWORD: ${{ mule.password }}
-          command: mvn mule:deploy -Danypoint.userName="$USERNAME" -Danypoint.password="$PASSWORD" -Denvironment="$env"
+          command: mvn mule:deploy -Danypoint.userName="$USERNAME" -Danypoint.password="$PASSWORD"
 
 workflows:
   # Below is the definition of your workflow.
