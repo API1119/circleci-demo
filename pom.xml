@@ -33,7 +33,7 @@
 					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
 						<muleVersion>4.3.0</muleVersion>
-						<username>${anypoint.userName}</username>
+						<username>${anypoint.username}</username>
 						<password>${anypoint.password}</password>
 						<applicationName>circle-ci-demo</applicationName>
 						<environment>Sandbox</environment>
